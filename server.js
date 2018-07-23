@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 
-const port = process.env.PORT || 3004;
+const port = process.env.PORT || 3005;
 
 var app = express();
 
@@ -52,6 +52,12 @@ app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page hiii',
     onlyAbout: 'This is only about'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'This is projects Page'
   });
 });
 
