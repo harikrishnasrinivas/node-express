@@ -1,6 +1,8 @@
 const express = require('express');
 const fs = require('fs');
 
+const port = process.env.PORT || 3004;
+
 var app = express();
 
 const hbs = require('hbs');
@@ -20,7 +22,8 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  res.render('maintanance.hbs');
+  //res.render('maintanance.hbs');
+  next();
 });
 app.set('view engine', 'hbs');
 
@@ -59,6 +62,6 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(3002, () => {
-  console.log('Server is up on port 3002');
+app.listen(port, () => {
+  console.log('Server is up on port ',port);
 });
